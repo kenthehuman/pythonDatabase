@@ -4,6 +4,11 @@ Stores parts bill of materials.
 """
 import sqlite3
 
+def printTableHeader():
+    sqliteCursor.execute("SELECT * FROM parts")
+    col_name_list = [tuple[0] for tuple in sqliteCursor.description]
+    print(col_name_list)
+
 def dbArchive():
     from datetime import date, datetime
     import shutil
@@ -22,12 +27,16 @@ def createTable(cur):
                     (date text, trans text, symbol text, qty real, price real)''')
 
 def printTable():
-    for row in sqliteCursor.execute('SELECT * FROM stocks ORDER BY price'):
-        print('Date: ', row[0])
-        print('Trans: ', row[1])
-        print('Stock: ', row[2])
-        print('Qty: ', row[3])
-        print('Price: ', row[4])
+    printTableHeader()
+    sqliteCursor.execute("SELECT * FROM parts")
+    col_name_list = [tuple[0] for tuple in sqliteCursor.description]
+    for row in sqliteCursor.execute('select * from parts'): print(row) 
+    # for row in sqliteCursor.execute('SELECT * FROM stocks ORDER BY price'):
+    #     print('Date: ', row[0])
+    #     print('Trans: ', row[1])
+    #     print('Stock: ', row[2])
+    #     print('Qty: ', row[3])
+    #     print('Price: ', row[4])
 
 # sqliteCursor.execute('''CREATE TABLE parts
 #                         ())
@@ -37,7 +46,8 @@ def printMenu():
     input("""Choose:
         1. Print
         Choice: """) =={
-        'view':printTable()
+        '1': printTable()
+            
     }
 
 
@@ -63,7 +73,10 @@ try:
     # sqliteCursor.execute("INSERT INTO stocks VALUES ('2006-01-05','BUY','RHAT',100,35.14)")
     # dbArchive()
     # printMenu()
-    printTable()
+    # printMenu()
+    sqliteCursor.execute("SELECT * FROM parts")
+    col_name_list = [tuple[0] for tuple in sqliteCursor.description]
+    
   
     # Close the cursor
     sqliteCursor.close()

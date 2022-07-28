@@ -2,4 +2,19 @@ create table parts
     (part_number text, part_name text, part_description text, qty int, material text, supplier text)
 
 insert into table values
-    ('DC202', 'Series', 'Positioner', 0)
+    ('DC202', 'Series', 'Positioner', 0, '', 'DE')
+    ('as001', 'Turntable', 'turntable assembly',1 , '', 'DE')
+    ('as002', 'Gimbal', 'Gimbal assembly',1 , '', 'DE')
+    ('mm001', 'Baseplate', 'turntable assembly',1 , '', 'DE')
+    ('mm002', 'Turntable Spacer', 'turntable Spacer',1 , '', 'DE')
+    ('mm003', 'Limit Switch Rod', 'limit switch rod',1 , '', 'DE')
+    ('94459A130', 'Heated Insert', 'M3 threaded heat inserts',1 , '', 'DE')
+    
+
+
+DC202:
+    ('Gimbal'
+    'Turntable'
+    'Screws'),
+    'GIMBAL',
+    ('')
