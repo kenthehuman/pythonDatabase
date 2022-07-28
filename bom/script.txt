@@ -1,0 +1,5 @@
+create table parts
+    (part_number text, part_name text, part_description text, qty int, material text, supplier text)
+
+insert into table values
+    ('DC202', 'Series', 'Positioner', 0)

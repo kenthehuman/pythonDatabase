@@ -32,15 +32,6 @@ def printTable():
 # sqliteCursor.execute('''CREATE TABLE parts
 #                         ())
 
-def printMenu():
-    # Output Menu Options
-    input("""Choose:
-        1. Print
-        Choice: """) =={
-        'view':printTable()
-    }
-
-
 try:
     
     # Connect to DB and create a cursor
@@ -61,8 +52,7 @@ try:
     # sqliteCursor.execute("INSERT INTO stocks VALUES ('2006-01-05','BUY','RHAT',100,35.14)")
     # sqliteConnection.commit()
     # sqliteCursor.execute("INSERT INTO stocks VALUES ('2006-01-05','BUY','RHAT',100,35.14)")
-    # dbArchive()
-    # printMenu()
+    dbArchive()
     printTable()
   
     # Close the cursor
