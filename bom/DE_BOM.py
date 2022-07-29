@@ -14,7 +14,7 @@ def dbArchive():
     import shutil
 
     today = datetime.now().strftime("%d-%m-%Y_%H%M%S")
-    # date.
+    # date.``
     db_current_file = 'C:\\Users\\Jordan\\Documents\\app\\database\\bom\\DE_BOM.py'
     db_archive_dir = f'C:\\Users\\Jordan\\Documents\\app\\database\\bom\\Archive\\DE_BOM_{today}.py' 
     shutil.copyfile(db_current_file, db_archive_dir)
@@ -68,7 +68,8 @@ try:
 
     # createTable(sqliteCursor)
     # Insert a row of data
-    # sqliteCursor.execute("INSERT INTO stocks VALUES ('2006-01-05','BUY','RHAT',100,35.14)")
+    sqliteCursor.execute("INSERT INTO stocks VALUES ('2006-01-05','BUY','RHAT',100,35.14)")
+    sqliteConnection.commit()
     # sqliteConnection.commit()
     # sqliteCursor.execute("INSERT INTO stocks VALUES ('2006-01-05','BUY','RHAT',100,35.14)")
     # dbArchive()
