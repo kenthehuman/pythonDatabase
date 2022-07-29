@@ -57,3 +57,47 @@ CREATE TABLE child_dog {
     FOREIGN KEY(child_id) REFERENCES child(id),
     FOREIGN KEY(dog_id) REFERENCES dog(id)
 };
+
+create table parts {
+    partID integer primary key autoincrement,
+    part_number text,
+
+}
+
+>>> con = sqlite3.connect('foo.db') 
+>>> cur = con.cursor()
+>>> cur.execute("""
+... create table parts (
+... partID  integer primary key autoincrement,
+... name text);""")
+<sqlite3.Cursor object at 0x000002A772D2D140>
+>>> cur.execute("""
+... create table partslist (
+... listID text primary key,
+... quantity integer);""")
+<sqlite3.Cursor object at 0x000002A772D2D140>
+>>> cur.execute("""
+... insert into parts ('dc202');""")
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+sqlite3.OperationalError: near ";": syntax error
+>>> cur.execute("""insert into parts ('dc202');""")
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+sqlite3.OperationalError: near ";": syntax error
+>>> cur.execute("""insert into parts values ('dc202');""") 
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+sqlite3.OperationalError: table parts has 2 columns but 1 values were supplied
+>>> cur.execute("""insert into parts values (0,'dc202');""") 
+<sqlite3.Cursor object at 0x000002A772D2D140>
+>>> con.commit()
+>>> cur.execute("""insert into parts values (0,'gimbal');""") 
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+sqlite3.IntegrityError: UNIQUE constraint failed: parts.partID
+>>> cur.execute("""insert into parts values (1,'gimbal');""") 
+<sqlite3.Cursor object at 0x000002A772D2D140>
+>>> cur.execute("""insert into parts values (2,'turntable');""") 
+<sqlite3.Cursor object at 0x000002A772D2D140>
+>>>
