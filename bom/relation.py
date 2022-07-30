@@ -25,5 +25,4 @@ cur.execute("""
         foreign key(component_id) references child(id),
         foreign key(part_id) references part(id)
         );""")
-
-        
+ddd
