@@ -1,28 +1,65 @@
 import sqlite3
 
+
+def makeTable():
+    # create part table
+    cur.execute("""
+        create table part (
+        id integer primary key, name text);
+        """)
+
+
+    # # create component table
+    # cur.execute("""
+    #     create table component (
+    #         id integer primary key, name text
+    #     );""")
+
+
+    # create mapping table
+    cur.execute("""
+        create table part_list (
+            part_id integer,
+            qty integer,
+            foreign key(part_id) references part(id)
+            );""")
+
+def insertRows():
+    cur.execute("""
+    insert into part (name)
+    values
+    ('turntable')
+    """)
+    con.commit()
+
+
 con = sqlite3.connect('bom.db')
 cur = con.cursor()
-
-# create part table
-cur.execute("""
-     create table part (
-     id integer primary key autoincrement, name text);
-     """)
+cur.execute("""pragma foreign_keys = true;""")
 
 
- # create component table
-cur.execute("""
-     create table component (
-         id integer primary key autoincrement, name text
-     );""")
+# selet column from table
+# stores the rows from the query into a list of tuples, extract them with .fetchall()
+all_parts = cur.execute('select * from part')
+all_part_list = cur.execute('select * from part_list')
 
 
-# create mapping table
-cur.execute("""
-    create table part_component (
-        component_id integer,
-        part_id integer,
-        foreign key(component_id) references child(id),
-        foreign key(part_id) references part(id)
-        );""")
-ddd
+# name = input('Name of part?:')
+# query = """select * from part where name = ?"""
+# result = cur.execute(query, (name,))
+# """select * from SqliteDb_developers where name = ?"""
+# makeTable()
+# insertRows()
+for row in cur.execute("""select * from part"""):
+    print(row)
+
+# cur.execute("""insert into part_list  values (1, 2);""")
+
+choice = input('Search: ')
+
+try:
+    print('try block', choice)
+    # cur.execute("""ALTER TABLE part_list ADD COLUMN name""")
+except:
+    print('Insert failed. Does not exist in part table maybe?')
+con.commit()
