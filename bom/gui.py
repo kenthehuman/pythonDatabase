@@ -1,4 +1,5 @@
 from tkinter import *
+from tkinter import ttk
 import sqlite3
 import tkinter
 
@@ -13,25 +14,13 @@ def submit():
     item_part.delete(0, END)
     item_description.delete(0, END)
     item_number.delete(0, END)
-# def query():
-#     connection = sqlite3.connect("bom.db")
-#     cursor = connection.cursor()
-#     cursor.execute("SELECT *, oid FROM part")
-#     records = cursor.fetchall()
-#     print(records)
-#     print_records = ''
-#     for record in records:
-#         print_records += str(record[0]) + ", " + str(record[1]) + " , " + str(record[2]) + ", " + "\t" + str(record[3]) +"\n"
-#     query_label = Label(window, text=print_records)
-#     query_label.grid(row=5, column=0, columnspan=2, sticky=W)
-#     connection.commit()
-#     connection.close()
+
 
 # Show records, selects all columns
 def query():
     global query_window
     query_window = Tk()
-    query_window.geometry("450x300")
+    query_window.geometry("1000x900")
     query_window.title("Records")
     connection = sqlite3.connect("bom.db")
     cursor = connection.cursor()
@@ -39,12 +28,19 @@ def query():
     records = cursor.fetchall()
     print(records)
     print_records = []
+    i=0
+    j=0
     for record in records:
-        print_records.append(str(record[0]))
+        j=0
+        for cell in (range(len(record)-2)):
+            print(i)
+            ttk.Label(query_window, text=str(record[cell])).grid(row=i+1, column=j+1, padx=4, sticky=W)
+            j+=1
+        i += 1
         # print_records += str(record[0]) + ", " + str(record[1]) + " , " + str(record[2]) + ", " + "\t" + str(record[3]) +"\n"
     # query_label = Label(query_window, text=print_records)
     # query_label.grid(row=0, column=0)
-    
+
     connection.commit()
     connection.close()
 
@@ -163,3 +159,20 @@ close_btn=Button(window,text="Close",command=window.destroy)
 close_btn.grid(row=13, column =0, columnspan=2, pady=2)
 
 window.mainloop()
+
+
+# loop to make a bunch of widgets
+def open():
+    root = Tk()
+    for i in range(4):
+        ttk.Button(root, text="Hello "+str(i)).grid(row=i, column=1)
+        ttk.Label(root, text="Label "+str(i)).grid(row=i)
+    root.mainloop()
+
+root = Tk()
+root.title("Bill of Materials")
+# Main frame window
+mainframe = ttk.Frame(root, padding="3 3 12 12")
+mainframe.grid(column=0, row=0, sticky=(N, W, E, S))
+root.columnconfigure(0, weight=1)
+root.rowconfigure

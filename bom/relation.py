@@ -37,8 +37,12 @@ def insertRows():
     ('turntable')
     """)
     con.commit()
-
-
+#  
+# cur.execute("INSERT INTO part_list (part_id, name, qty) VALUES (3, ?, 1)")
+# cur.execute("select part from part where  id =1")
+# partName = cur.fetchall()
+# partName = partName[0][0]
+import sqlite3
 con = sqlite3.connect('bom.db')
 cur = con.cursor()
 cur.execute("""pragma foreign_keys = true;""")
@@ -98,3 +102,4 @@ result = cur.execute("SELECT * FROM part where name=?", [query]).fetchall()
 
 cur.execute("insert into part (part, description, part_number) values ('DC202', 'Dual Axis Compact Positioner', 'DC202')")
 
+# cur.execute("INSERT INTO part_list (part_id, name, qty) VALUES (3, ?, 1)")
