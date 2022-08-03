@@ -62,6 +62,11 @@ for row in sheet.iter_rows(min_row=13,
                     supplier=row[SUPPLIER])
     hardware.append(product)
 # puts multiple variables into a query for inserting
+
+query = """insert into part 
+            (part, description, part_number, supplier) values (?, ?, ?, ?)"""
+
+
 for i in range(len(hardware)):        
     part = hardware[i].name
     description = hardware[i].description
@@ -69,7 +74,6 @@ for i in range(len(hardware)):
     description = hardware[i].description
     query_variable = [(part), (description), (part_number), (description)]
     cur.execute(query, query_variable)
-query = """insert into part 
-            (part, description, part_number, supplier) values (?, ?, ?, ?)"""
+
 query_variable = [(part), (description), (part_number), (description)]
 cur.execute(query, query_variable)
