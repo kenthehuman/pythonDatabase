@@ -2,7 +2,7 @@ from dataclasses import dataclass
 
 @dataclass
 class DEpart:
-    name: str
-    description: str
-    part_number: str
-    supplier: str
+    partName: str
+    partDescription: str
+    partNumber: str
+    partSupplier: str

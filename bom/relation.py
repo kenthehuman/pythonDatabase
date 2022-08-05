@@ -103,3 +103,10 @@ result = cur.execute("SELECT * FROM part where name=?", [query]).fetchall()
 cur.execute("insert into part (part, description, part_number) values ('DC202', 'Dual Axis Compact Positioner', 'DC202')")
 
 # cur.execute("INSERT INTO part_list (part_id, name, qty) VALUES (3, ?, 1)")
+
+
+import sqlite3
+def createConnection():
+    con = sqlite3.connect('bom.db')
+    cur = con.cursor()
+

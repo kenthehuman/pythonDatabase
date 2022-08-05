@@ -6,7 +6,7 @@ Date:8/1/2022
 """
 from openpyxl import load_workbook
 from classes import DEpart
-from mapping import NAME, DESCRIPTION, PART_NUMBER, SUPPLIER
+from mapping import PARTNAME, PARTDESCRIPTION, PARTNUMBER, PARTSUPPLIER
 
 import sqlite3
 
@@ -22,24 +22,17 @@ hardware = []
 #                             values_only=True):
 #     print(value)
 # 
-
-for row in sheet.iter_rows(min_row=10,
-                            max_row=10,
-                            values_only=True):
-    product = DEpart(name=row[NAME],
-                    description=row[DESCRIPTION],
-                    part_number=row[PART_NUMBER],
-                    supplier=row[SUPPLIER])
-    hardware.append(product)
-
-# convert list to a list of tuple to insert with .execute method
-hardware = [tuple(hardware)]
-
 # gets the description of the first thing
 # hardware[0][0].description
 # hardware[0][0].name
 # hardware[0][0].part_number
 # hardware[0][0].supplier
+
+
+# convert list to a list of tuple to insert with .execute method
+hardware = [tuple(hardware)]
+
+
 
 con = sqlite3.connect("bom.db")
 cur = con.cursor()
@@ -51,29 +44,52 @@ cur.execute("""insert into part
             ((hardware[0].description,), (hardware[0].name,), 
             (hardware[0].part_number,), (hardware[0].supplier,))""")
 
+# doesnt work
+# # gets from rows noted and loads into hardware
+# for row in sheet.iter_rows(min_row=13,
+#                             max_row=31,
+#                             values_only=True):
+#     product = DEpart(name=row[NAME],
+#                     description=row[DESCRIPTION],
+#                     part_number=row[PART_NUMBER],
+#                     supplier=row[SUPPLIER])
+#     hardware.append(product)
+# # puts multiple variables into a query for inserting
 
-# gets from rows noted and loads into hardware
-for row in sheet.iter_rows(min_row=13,
-                            max_row=31,
+query = """insert into parts 
+            (partName, partDescription, partNumber, partSupplier) values (?, ?, ?, ?)"""
+
+
+
+
+# Extracted all items from turntable from the excel sheet ('Turntable') DC202BOM
+hardware=[]
+for row in sheet.iter_rows(min_row=3,
+                            max_row=16,
                             values_only=True):
-    product = DEpart(name=row[NAME],
-                    description=row[DESCRIPTION],
-                    part_number=row[PART_NUMBER],
-                    supplier=row[SUPPLIER])
+    product = DEpart(partName=row[PARTNAME],
+                    partDescription=row[PARTDESCRIPTION],
+                    partNumber=row[PARTNUMBER],
+                    partSupplier=row[PARTSUPPLIER])
     hardware.append(product)
-# puts multiple variables into a query for inserting
 
-query = """insert into part 
-            (part, description, part_number, supplier) values (?, ?, ?, ?)"""
-
+for row in sheet.iter_rows(min_row=19,
+                            max_row=33,
+                            values_only=True):
+    product = DEpart(partName=row[PARTNAME],
+                    partDescription=row[PARTDESCRIPTION],
+                    partNumber=row[PARTNUMBER],
+                    partSupplier=row[PARTSUPPLIER])
+    hardware.append(product)
 
 for i in range(len(hardware)):        
-    part = hardware[i].name
-    description = hardware[i].description
-    part_number = hardware[i].part_number
-    description = hardware[i].description
-    query_variable = [(part), (description), (part_number), (description)]
+    partName = hardware[i].partName
+    partDescription = hardware[i].partDescription
+    partNumber = hardware[i].partNumber
+    partSupplier = hardware[i].partSupplier
+    query_variable = [(partName), (partDescription), (partNumber), (partSupplier)]
+    print(query_variable)
     cur.execute(query, query_variable)
 
-query_variable = [(part), (description), (part_number), (description)]
-cur.execute(query, query_variable)
+
+

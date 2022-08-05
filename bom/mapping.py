@@ -1,9 +1,9 @@
 # column_names
 # Purchased Part
-NAME = 1
-DESCRIPTION = 2
-PART_NUMBER = 4
-SUPPLIER = 5
+PARTNAME = 1
+PARTDESCRIPTION = 2
+PARTNUMBER = 4
+PARTSUPPLIER = 5
 
 
 # # Column names
