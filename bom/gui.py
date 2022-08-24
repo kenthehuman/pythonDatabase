@@ -270,7 +270,7 @@ def search_part(*args):
         conn = sqlite3.connect("bom.db")    
         c = conn.cursor()
         value='%'+str(search_entry.get())+'%'
-        query = """SELECT * FROM part WHERE part LIKE ?"""
+        query = """SELECT * FROM parts WHERE partName LIKE ?"""
         c.execute(query, (value,))
         rows = c.fetchall()
         i=3
@@ -348,79 +348,79 @@ root.bind("<Return>", search_part)
 
 root.mainloop()
 
-"""
->>> sql = 'select part, description, part_number FROM part inner join part_list on part.id = part_list.part_id'; 
->>> cur.execute(sql)
-<sqlite3.Cursor object at 0x000001F80E1F5BC0>
->>> cur.fetchall()
-[('Turntable', 'Turntable Assembly', '100AS001'), ('Turntable', 'DC202 turntable', '100AS001')]
->>>"""
+# """
+# >>> sql = 'select part, description, part_number FROM part inner join part_list on part.id = part_list.part_id'; 
+# >>> cur.execute(sql)
+# <sqlite3.Cursor object at 0x000001F80E1F5BC0>
+# >>> cur.fetchall()
+# [('Turntable', 'Turntable Assembly', '100AS001'), ('Turntable', 'DC202 turntable', '100AS001')]
+# >>>"""
 
-'''
-    cur.execute("""
-    create table part (
-    id integer primary key, part text, 
-    description text, material text, 
-    part_number text, supplier text);
-    """)
-'''
+# '''
+#     cur.execute("""
+#     create table part (
+#     id integer primary key, part text, 
+#     description text, material text, 
+#     part_number text, supplier text);
+#     """)
+# '''
 
-cur.executescript('''
-create table parts (
-    partID integer primary key,
-    partName text,
-    partDescription text,
-    partCost text,
-    partSupplier text,
-    partNumber text
-    );
+# cur.executescript('''
+# create table parts (
+#     partID integer primary key,
+#     partName text,
+#     partDescription text,
+#     partCost text,
+#     partSupplier text,
+#     partNumber text
+#     );
     
-create table bomList (
-    assyId integer primary key,
-    partID integer,
-    qtyUsed integer,
-    foreign key(partID) references part(partID)
-    );
-    ''')
-cur.executescript('''
-insert into parts (partName, partDescription, partNumber)
-values 
-('Gimbal', 'Assembly', '100AS001'),
-('Turntable', 'Assembly', '100AS002'),
-('Base Cover', '3d printed cover', '100PD001'),
-('Base Plate', 'Turntable Base Plate', '100MM002'),
-('Fiberglass screw', 'M6', '91075A101'),
-('SS screw', '1/4-20', '91012A111'),
-('Arm', 'Gimbal Arm', '100AS008'),
-('Rail', 'Gimbal Rail', '100MM006');''')
+# create table bomList (
+#     assyId integer primary key,
+#     partID integer,
+#     qtyUsed integer,
+#     foreign key(partID) references part(partID)
+#     );
+#     ''')
+# cur.executescript('''
+# insert into parts (partName, partDescription, partNumber)
+# values 
+# ('Gimbal', 'Assembly', '100AS001'),
+# ('Turntable', 'Assembly', '100AS002'),
+# ('Base Cover', '3d printed cover', '100PD001'),
+# ('Base Plate', 'Turntable Base Plate', '100MM002'),
+# ('Fiberglass screw', 'M6', '91075A101'),
+# ('SS screw', '1/4-20', '91012A111'),
+# ('Arm', 'Gimbal Arm', '100AS008'),
+# ('Rail', 'Gimbal Rail', '100MM006');''')
 
-cur.executescript('''
-insert into bomList (assyId, partID, qtyUsed)
-values
-('DC202', '2')
-);''')
-
-
-query = "select partID, partName, partDescription, partNumber, name from bomList inner join parts on bomList.parentID=parts.partID"
-value = [(28.)]
-
-c.execute(query, )
-result[0] = c.fetchone()
-result[1] = c.fetchone()
+# cur.executescript('''
+# insert into bomList (assyId, partID, qtyUsed)
+# values
+# ('DC202', '2')
+# );''')
 
 
-searchID = 28
-partSearched = [] 
-for row in result:       
-    index = 0
-    if row[index] == searchID:
-        for line in row[0]:
-            partSearched.append(index)
-    index =+1
+# query = "select partID, partName, partDescription, partNumber, name from bomList inner join parts on bomList.parentID=parts.partID"
+# value = [(28.)]
+
+# c.execute(query, )
+# result[0] = c.fetchone()
+# result[1] = c.fetchone()
 
 
-for row in result:
-    index=0
-    for i in range(len(row)):
-        print(i)
+# searchID = 28
+# partSearched = [] 
+# for row in result:       
+#     index = 0
+#     if row[index] == searchID:
+#         for line in row[0]:
+#             partSearched.append(index)
+#     index =+1
+
+
+# for row in result:
+#     index=0
+#     for i in range(len(row)):
+#         print(i)
     
