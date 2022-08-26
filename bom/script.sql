@@ -146,3 +146,11 @@ cur.fetchall()
 >>> cur.fetchall()
 [(26, 'DC202', 'Precision Dual-Axis Compact Positioner', None, 'DE', 'DC202-a')]
 >>>
+
+import sqlite3
+con = sqlite3.connect("bom.db")
+c = con.cursor()
+c.execute("""select parts.partID, parts.partName, parts.partDescription, parts.partSupplier, parts.partNumber, bomList.qtyUsed
+from parts, bomList""")
+where parts.partID = bomList.parentChild;
+result = c.fetchall()
