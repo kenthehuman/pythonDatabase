@@ -1,0 +1,23 @@
+select distinct name, calories from 
+
+select name, calories
+from cakes order by calories LIMIT 3
+
+= equal
+!= not equal> greater than
+< less than
+>= greater or equal
+<= less or equal
+between between inclusive range
+
+select teamname, country from teams
+where country in ('Spain' , 'England' , 'Germany');
+
+select concat(firstname, ' ', lastname) as fullname from staff
+
+
+shortten table names
+SELECT ct.ID, ct.Name, ord.Name, ord.Amount
+FROM customers AS ct, orders AS ord
+WHERE ct.ID=ord.Customer_ID
+ORDER BY ct.ID;
