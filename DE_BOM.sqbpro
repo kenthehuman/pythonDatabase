@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8"?><sqlb_project><db path="C:/Users/Jordan/Documents/app/database/DE_BOM.db" readonly="0" foreign_keys="1" case_sensitive_like="0" temp_store="0" wal_autocheckpoint="1000" synchronous="2"/><attached/><window><main_tabs open="structure browser pragmas query" current="3"/></window><tab_structure><column_width id="0" width="300"/><column_width id="1" width="0"/><column_width id="2" width="100"/><column_width id="3" width="1330"/><column_width id="4" width="0"/><expanded_item id="0" parent="1"/><expanded_item id="1" parent="1"/><expanded_item id="2" parent="1"/><expanded_item id="3" parent="1"/></tab_structure><tab_browse><current_table name="4,8:mainpartList"/><default_encoding codec=""/><browse_table_settings><table schema="main" name="bomList" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_"><sort/><column_widths><column index="1" value="66"/><column index="2" value="51"/><column index="3" value="61"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="partList" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_"><sort/><column_widths><column index="1" value="50"/><column index="2" value="109"/><column index="3" value="161"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table></browse_table_settings></tab_browse><tab_sql><sql name="D6050.sql">
+insert into parts (partName, partDescription, partSupplier, partNumber)
+values
+(&quot;Extension Rail&quot;, &quot;Extension Rail&quot;, &quot;DE&quot;, &quot;TBD&quot;),
+(&quot;Cap Screw&quot;, &quot;Fiberglass Hex Head Cap Scew&quot;, &quot;McMaster&quot;, &quot;91345A705&quot;),
+(&quot;Socket Cap Screw&quot;, &quot;SS Flat Head Socket Cap Screw&quot;, &quot;McMaster&quot;,&quot;92210A635&quot;),
+(&quot;Roll Plate&quot;, &quot;Roll Plate, Back&quot;, &quot;DE&quot;, &quot;TBD&quot;),
+(&quot;Head Mount&quot;, &quot;Circular Head Mount&quot;, &quot;DE&quot;, &quot;TBD&quot;),
+(&quot;Roll Plate&quot;, &quot;SPWG Roll Plate&quot;, &quot;DE&quot;, &quot;TBD&quot;),
+(&quot;Mast Base&quot;, &quot;Circular Mast Base&quot;, &quot;DE&quot;, &quot;TBD&quot;),
+(&quot;Mast Baseplate&quot;, &quot;Mast Baseplate&quot;, &quot;DE&quot;, &quot;TBD&quot;),
+(&quot;Head Mount Brace&quot;, &quot;Circular Head Mount Brace Base&quot;, &quot;DE&quot;, &quot;TBD&quot;),
+(&quot;Frame Top&quot;, &quot;Frame Top&quot;, &quot;DE&quot;, &quot;TBD&quot;),
+(&quot;Frame Side&quot;, &quot;Frame Side Short&quot;, &quot;DE&quot;, &quot;TBD&quot;),
+(&quot;Frame Side&quot;, &quot;Frame Side Long&quot;, &quot;DE&quot;, &quot;TBD&quot;),
+(&quot;Stage Plate&quot;, &quot;Stage Plate&quot;, &quot;DE&quot;, &quot;TBD&quot;),
+(&quot;Stage Bracket&quot;, &quot;Stage Bracket&quot;, &quot;DE&quot;,&quot;TBD&quot;),
+(&quot;Rotary Stage&quot;, &quot;Rotary Stage&quot;, &quot;DE&quot;, &quot;TBD&quot;),
+(&quot;512-2400&quot;,&quot;512-2400&quot;, &quot;Mcmaster&quot;, &quot;512-2400&quot;),
+(&quot;HC Slip Ring ADP&quot;,&quot;HC Slip Ring ADP&quot;, &quot;TBD&quot;, &quot;TBD&quot;),
+(&quot;HC Slip Ring Tube&quot;,&quot;HC Slip Ring Tube&quot;, &quot;TBD&quot;, &quot;TBD&quot;),
+(&quot;HC SR Keeper&quot;,&quot;HC SR Keeper&quot;,&quot;TBD&quot;,&quot;TBD&quot;),
+(&quot;Rotary Stage&quot;, &quot;Rotary Stage&quot;, &quot;TBD&quot;, &quot;TBD&quot;),
+(&quot;RingStyle Turntable&quot;, &quot;Aluminum Ring Style Turntable&quot;, &quot;TBD&quot;, &quot;TBD&quot;),
+(&quot;Panel&quot;,&quot;Panel&quot;,&quot;TBD&quot;,&quot;TBD&quot;),
+(&quot;DB9 Connector&quot;,&quot;DB9 Connector&quot;,&quot;TBD&quot;,&quot;TBD&quot;),
+(&quot;DC Jack&quot;,&quot;DC Jack&quot;, &quot;TBD&quot;, &quot;TBD&quot;),
+(&quot;5mmGreenLED&quot;, &quot;5mm Green LED&quot;, &quot;TBD&quot;, &quot;TBD&quot;),
+(&quot;SMA&quot;, &quot;SMA&quot;, &quot;TBD&quot;, &quot;TBD&quot;),
+(&quot;Red Fan&quot;, &quot;Sunnon Red Fan&quot;,&quot;Sunnon&quot;,&quot;TBD&quot;),
+(&quot;HSR20A&quot;, &quot;HRS20A Slip Ring&quot;, &quot;TBD&quot;, &quot;HRS20A&quot;),
+(&quot;Arcylic Floor&quot;, &quot;Plate Acrylic Floor&quot;,&quot;TBD&quot;,&quot;TBD&quot;),
+(&quot;Bearing Block&quot;, &quot;Bearing Block BF10&quot;, &quot;TBD&quot;, &quot;BK10&quot;),
+(&quot;Ball Screw Block&quot;, &quot;Ball Scre Block&quot;, &quot;TBD&quot;, &quot;TBD&quot;),
+(&quot;Motor Mount&quot;,&quot;NEMA17 Motor Mount&quot;,&quot;TBD&quot;,&quot;TBD&quot;),
+(&quot;Ball Bearing&quot;,&quot;1204 Ball Bearing&quot;,&quot;TBD&quot;,&quot;6661K820&quot;),
+(&quot;Motor&quot;,&quot;NEMA17 Motor&quot;,&quot;TBD&quot;,&quot;TBD&quot;),
+(&quot;Ball Nut&quot;,&quot;Ball Nut&quot;,&quot;TBD&quot;,&quot;TBD&quot;);
+
+
+</sql><sql name="SQL 2">INSERT INTO partList (partNumber, partDescription)
+VALUES
+(&quot;13004&quot;, &quot;Gimbal Mast&quot;),
+(&quot;13005&quot;, &quot;Gimbal Tray&quot;),
+(&quot;13006&quot;, &quot;Gimbal Tower&quot;);
+
+-- insert into partList (partNumber, partDescription)
+-- VALUES
+-- (&quot;13000&quot;, &quot;Turntab</sql><sql name="SQL 3">INSERT INTO bomList (parentID, childID, qtyUsed)
+VALUES
+(3, 8, 1),
+(3, 9, 1),
+(3, 10, 2);</sql><sql name="SQL 4">-- Selects based on parentID
+-- partNumber as &quot;Part&quot;, partDescription as &quot;Desc&quot; partID as &quot;Part&quot;
+SELECT   partNumber as &quot;Drawing&quot;, partDescription as &quot;Part Description&quot;, partID='1' &quot;Quantity&quot; from partList where partID = 1
+
+union
+
+SELECT  distinct partNumber as &quot;Part&quot;, partDescription as &quot;Description&quot;, bomList.qtyUsed from partList
+
+  join bomList on bomList.parentID = 1 and childID=partID;
+
+-- select partDescription as &quot;Name&quot; from partList;</sql><sql name="script.sql">-- CREATE TABLE (
+    
+-- )
+
+-- INSERT INTO part_list VALUES (
+
+-- )
+
+-- CREATE TABLE operations (
+--     id INTEGER, description text, notes text
+-- )
+
+
+-- create table purchased_part ( id integer PRIMARY key, part text, description text, supplier text, cost real)
+
+-- insert into table operations (description, notes) values ('CNC', 'Haas CNC Op')
+-- insert into operations (description, notes) values ('Wiring', 'Cable and Harness Fabrication')
+
+
+cur.executescript('''
+create table parts (
+    partID integer primary key,
+    partName text,
+    partDescription text,
+    partCost text,
+    partSupplier text,
+    partNumber text
+    );
+    
+create table bomList (
+    assyId integer primary key,
+    partID integer,
+    qtyUsed integer,
+    foreign key(partID) references parts(partID)
+    );
+    ''')
+cur.executescript('''
+insert into parts (partName, partDescription, partNumber)
+values 
+('Gimbal', 'Assembly', '100AS001'),
+('Turntable', 'Assembly', '100AS002'),
+('Base Cover', '3d printed cover', '100PD001'),
+('Base Plate', 'Turntable Base Plate', '100MM002'),
+('Fiberglass screw', 'M6', '91075A101'),
+('SS screw', '1/4-20', '91012A111'),
+('Arm', 'Gimbal Arm', '100AS008'),
+('Rail', 'Gimbal Rail', '100MM006');''')
+
+cur.executescript('''
+insert into bomList (assyId, partID, qtyUsed)
+values
+('DC202', '2')
+);''')
+
+cur.executescript('''
+insert into parts (partName, partDescription, partSupplier, partNumber)
+VALUES
+('DC202', 'Precision Dual-Axis Compact Positioner', 'DE', 'DC202-a'),
+('Gimbal', 'Gimbal Assembly', 'DE', '100AS001'),
+('Turntable', 'Turntable Assembly', 'DE', '100AS002');
+''')
+
+
+-- DC202 top level part
+cur.executescript(&quot;&quot;&quot;
+insert into bomList (parentID, childID, qtyUsed, name) VALUES
+(26, 27, 1, 'DC202'),
+(26, 28, 1, 'DC202'),
+(26, 8, 6, 'DC202')
+&quot;&quot;&quot;)
+
+
+-- DC202 Turntable part
+cur.execute(&quot;&quot;&quot;
+insert into bomList (parentID, childID, qtyUsed, name)
+VALUES
+(28, 1, 1, 'DC202 Turntable Assy - Baseplate'),
+(28, 2, 1, 'DC202 Turntable Assy - Spacer'),
+(28, 3, 1, 'DC202 Turntable Assy - Limit Switch Rod'),
+(28, 4, 1, 'DC202 Turntable Assy - Turntable'),
+(28, 5, 1, 'DC202 Turntable Assy - Turntable Cover'),
+(28, 6, 1, 'DC202 Turntable Assy - Limit Switch Cover'),
+(28, 15, 7, 'DC202 Turntable - M3x0.5x10mm FH SS Screws');
+&quot;&quot;&quot;)
+
+-- DC202 Gimbal part
+cur.execute(&quot;&quot;&quot;
+insert into bomList (parentID, childID, qtyUsed, name)
+VALUES
+(27, 40, 1, 'DC202 Gimbal Assy - Lower Pulley'),
+(27, 30, 1, 'DC202 Gimbal Assy - Gimbal Rail'),
+(27, 35, 1, 'DC202 Gimbal Assy - Roll Plate Adapter'),
+
+&quot;&quot;&quot;)
+
+
+insert into bomList (parentID, childID, qtyUsed, name) values (26, 27, 1, 'DC202')
+-- cur.execute('drop table bomList') drop table
+cur.executescript('''
+create table bomList (
+    parentID integer,
+    childID integer,
+    qtyUsed integer,
+    name text,
+    foreign key(childID) references parts(partID)
+    foreign key(parentID) references parts(partID)
+    );
+    ''')
+
+
+
+-- retreive part id or name respectively
+getPartNameFromIDQuery = &quot;select partName from parts where partID=?&quot;
+getPartNameFromIDVar = 26
+cur.execute(getPartNameFromIDQuery, (getPartNameFromIDVar,))
+result = cur.fetchall()
+
+
+getPartIDFromIDQuery = &quot;select partID from parts where partName=?&quot;
+getPartIDFromIDVar = &quot;DC202&quot;
+cur.execute(getPartIDFromIDQuery, (getPartIDFromIDVar,))
+query_result = cur.fetchall()
+result = query_result[0][0]
+-- Look for all parts in bomList with the ID found
+cur.execute(&quot;select childID from bomList where parentID = ?&quot;, (result,)) # childID's gets the children for ID
+-- Go back thru the parts table and print out info based on the childID results
+
+cur.executescript(&quot;&quot;&quot;
+select partName, partDescription, partNumber from parts inner join bomList on parts.partID = bomList.parentID;
+&quot;&quot;&quot;)
+cur.fetchall()
+
+
+cur.executescript(&quot;&quot;&quot;
+select partName from parts outer join bomList on parts.partName = bomList.name
+&quot;&quot;&quot;)
+cur.fetchall()
+
+cur.executescript(&quot;&quot;&quot;
+select partName, partDescription, partNumber from parts cross join bomList
+&quot;&quot;&quot;)
+cur.fetchall()
+
+&gt;&gt;&gt; cur.execute(&quot;select * from parts where partID = 26&quot;) 
+&lt;sqlite3.Cursor object at 0x000001F827A35040&gt;
+&gt;&gt;&gt; cur.fetchall()
+[(26, 'DC202', 'Precision Dual-Axis Compact Positioner', None, 'DE', 'DC202-a')]
+&gt;&gt;&gt;</sql><sql name="SQL 6">SELECT * from bomList where childID=2</sql><sql name="SQL 7">alter table partList rename COLUMN drawingNumber to partNumber</sql><current_tab id="6"/></tab_sql></sqlb_project>
